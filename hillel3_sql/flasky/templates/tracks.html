@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tracks</title>
+</head>
+<body>
+    <h1>Tracks List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Track Name</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for track in tracks %}
+            <tr>
+                <td>{{ track['name'] }}</td>
+                <td>{{ track['duration'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
