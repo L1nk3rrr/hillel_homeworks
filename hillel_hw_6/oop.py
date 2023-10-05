@@ -48,7 +48,6 @@ class Triangle(Shape):
         return self.side_1 + self.side_2 + self.side_3
 
     def square(self):
-        print(self.perimeter)
         semi_perimeter = self.perimeter / 2
         return math.sqrt(
             semi_perimeter
