@@ -7,16 +7,21 @@ class frange:
         self.stop = stop
         if self.stop is None:
             self.start, self.stop = 0.0, self.start
+        self._current = self.start
 
     def __iter__(self):
-        current = self.start
-        while True:
-            if self.step > 0 and current >= self.stop:
-                break
-            elif self.step < 0 and current <= self.stop:
-                break
-            yield current
-            current += self.step
+        return self
+
+    def __next__(self):
+        current = self._current
+        if self.step > 0 and current >= self.stop:
+            raise StopIteration()
+        elif self.step < 0 and current <= self.stop:
+            raise StopIteration()
+        else:
+            self._current += self.step
+        return current
+
 
 
 # Перевірка за допомогою assert
