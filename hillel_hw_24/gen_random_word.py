@@ -1,6 +1,7 @@
 import time
 import random
 import nltk
+from itertools import islice
 from nltk.corpus import words
 
 nltk.download('words')
@@ -9,10 +10,9 @@ def generate_random_words(num_words):
     if num_words > 10_000:
         raise ValueError("Number of words cannot exceed 10,000")
 
-    word_list = list(words.words())
+    word_list = list(set(words.words()))
     random.shuffle(word_list) # randomize
-    unique_words = set(word_list)
-    for word in list(unique_words)[:num_words]:
+    for word in islice(word_list, num_words):
         yield word
 
 num_words = 9_999
