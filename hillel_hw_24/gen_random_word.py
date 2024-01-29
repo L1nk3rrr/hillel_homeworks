@@ -4,7 +4,7 @@ import nltk
 from itertools import islice
 from nltk.corpus import words
 
-nltk.download('words')
+nltk.download('words') # can be runned one time
 
 def generate_random_words(num_words):
     if num_words > 10_000:
